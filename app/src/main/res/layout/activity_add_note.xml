@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F0F0"
+    tools:context=".AddNoteActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titletextview"
+        android:text="Новая заметка"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:padding="15dp"
+        android:background="#FDDAA6"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/rounded_corner">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleinput"
+            android:hint="Название заметки"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:background="@color/white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptioninput"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="start"
+            android:maxLines="10"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:hint="Описание"
+            android:background="@color/white"
+            android:radius="80dp"
+            android:textStyle="italic"/>
+
+        <EditText
+            android:id="@+id/timenotetext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calendarView1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:text="Выберите дату"
+            android:background="@color/white"/>
+
+
+        <CalendarView
+            android:id="@+id/calendarView1"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/placeinworldinput"
+            android:hint="Место на карте"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:background="@color/white"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DA880E"
+            android:layout_gravity="center"
+            android:text="Указать место на карте"
+            android:textSize="23dp"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F8A831"
+        android:layout_gravity="center"
+        android:text="Сохранить"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"/>
+
+
+
+</LinearLayout>
+    </ScrollView>
