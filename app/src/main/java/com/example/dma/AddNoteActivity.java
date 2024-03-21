@@ -1,10 +1,14 @@
 package com.example.dma;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.google.android.material.button.MaterialButton;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
+
+import com.google.android.material.button.MaterialButton;
 
 public class AddNoteActivity extends AppCompatActivity {
     CalendarView calender;
@@ -26,6 +30,16 @@ public class AddNoteActivity extends AppCompatActivity {
                 eTxt.setText(dayOfMonth + "." + (month + 1) + "." + year);
             }
 
+        });
+
+        MaterialButton mapBtn = findViewById(R.id.mapbtn);
+
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddNoteActivity.this, MapActivity.class));
+
+            }
         });
     }
 }

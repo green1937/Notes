@@ -97,6 +97,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#DA880E"
             android:layout_gravity="center"
+            android:id="@+id/mapbtn"
             android:text="Указать место на карте"
             android:textSize="23dp"
             android:layout_margin="10dp"/>
