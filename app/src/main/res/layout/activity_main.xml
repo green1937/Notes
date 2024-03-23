@@ -6,23 +6,31 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherIcon"
+        android:src="@drawable/weather"
+        android:padding="15dp"
+        android:background="#FDDAA6"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/notestitle"
-        android:text="Заметки"
+        android:id="@+id/weatherData"
+        android:text="+17°C Красноярск"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="normal"
         android:gravity="center"
         android:padding="15dp"
-        android:background="#FDDAA6"/>
+        android:background="#FDDAA6"
+        android:layout_toRightOf="@+id/weatherIcon"/>
     <RadioGroup
         android:id="@+id/rgSort"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/notestitle"
+        android:layout_below="@+id/weatherData"
         android:layout_marginLeft="40dp">
         <RadioButton
             android:layout_width="wrap_content"

@@ -5,13 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MapActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Map"
-        android:textSize="30dp"
-        android:textStyle="normal"
-        android:gravity="center"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mapImage"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
