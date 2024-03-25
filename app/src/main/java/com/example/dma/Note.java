@@ -1,17 +1,19 @@
 package com.example.dma;
 
-public class Note {
+import io.realm.RealmObject;
+
+public class Note extends RealmObject {
     String title;  // Название заметки
     String description;  // Описание заметки
     String placeInWorld;  // Место на карте для заметки
     String timeNote;  // Дата, к которой привязана заметка
 
-    public Note(String title, String description, String placeInWorld, String timeNote) {
-        this.title = title;
-        this.description = description;
-        this.placeInWorld = placeInWorld;
-        this.timeNote = timeNote;
-    }
+//    public Note(String title, String description, String placeInWorld, String timeNote) {
+//        this.title = title;
+//        this.description = description;
+//        this.placeInWorld = placeInWorld;
+//        this.timeNote = timeNote;
+//    }
 
     public String getTitle() {
         return title;
@@ -37,7 +39,7 @@ public class Note {
     public String getTimeNote() {
         return timeNote;
     }
-    public void settTmeNote(String timeNote) {
+    public void setTimeNote(String timeNote) {
         this.timeNote = timeNote;
     }
 }

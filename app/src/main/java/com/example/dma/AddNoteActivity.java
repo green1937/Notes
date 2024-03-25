@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+
+import io.realm.Realm;
 
 public class AddNoteActivity extends AppCompatActivity {
     CalendarView calender;
@@ -41,5 +44,37 @@ public class AddNoteActivity extends AppCompatActivity {
 
             }
         });
+
+        EditText titleInput = findViewById(R.id.titleinput);
+        EditText descriptionInput = findViewById(R.id.descriptioninput);
+        EditText timeInput = eTxt;
+        EditText placeInput = findViewById(R.id.placeinworldinput);
+        MaterialButton saveBtn = findViewById(R.id.savebtn);
+
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = titleInput.getText().toString();
+                String description = descriptionInput.getText().toString();
+                String timeNote = timeInput.getText().toString();
+                String placeInWorld = placeInput.getText().toString();
+
+                realm.beginTransaction();
+                Note note = realm.createObject(Note.class);
+                note.setTitle(title);
+                note.setDescription(description);
+                note.setTimeNote(timeNote);
+                note.setPlaceInWorld(placeInWorld);
+                realm.commitTransaction();
+                Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
+                finish();
+
+
+            }
+        });
+
+
     }
 }
