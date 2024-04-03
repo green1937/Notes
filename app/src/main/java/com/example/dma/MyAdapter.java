@@ -73,6 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("timeNote", note.timeNote);
                 intent.putExtra("placeInWorld", note.placeInWorld);
                 context.startActivity(intent);
+
             }
         });
     }
