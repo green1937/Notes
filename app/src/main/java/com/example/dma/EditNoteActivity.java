@@ -3,6 +3,7 @@ package com.example.dma;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,53 +15,45 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class EditNoteActivity extends AppCompatActivity {
+    CalendarView calender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
+        EditText timeInput = (EditText) findViewById(R.id.timenotetext);
 
+        /*Календарь*/
+        calender = (CalendarView) findViewById(R.id.calendarView1);
+
+
+        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                // TODO Auto-generated method stub
+                timeInput.setText(dayOfMonth + "." + (month + 1) + "." + year);
+            }
+
+        });
 
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
-        EditText timeInput = (EditText) findViewById(R.id.timenotetext);
+
         EditText placeInput = findViewById(R.id.placeinworldinput);
 
 
         Bundle arguments = getIntent().getExtras();
-        //if(arguments!=null){
-            String title = arguments.get("title").toString();
-            String description = arguments.getString("description");
-            String timeNote = arguments.get("timeNote").toString();
-            String placeInWorld = arguments.get("placeInWorld").toString();
-        //int position = arguments.getInt("position");
-            titleInput.setText(title);
-            descriptionInput.setText(description);
-            timeInput.setText(timeNote);
-            placeInput.setText(placeInWorld);
-            
-            /*
-            Realm realm = Realm.getDefaultInstance();
-            realm.beginTransaction();
-            Note note_old = realm.createObject(Note.class);
-            note_old.setTitle(title);
-            note_old.setDescription(description);
-            note_old.setTimeNote(timeNote);
-            note_old.setPlaceInWorld(placeInWorld);
-            note_old.deleteFromRealm();
-            realm.commitTransaction();
-            */
 
-            //Realm realm = Realm.getDefaultInstance();
-            //Note note_old = realm.createObject(Note.class);
-            //note_old.setTitle(title);
-            //note_old.setDescription(description);
-            //note_old.setTimeNote(timeNote);
-            //note_old.setPlaceInWorld(placeInWorld);
-        //Log.v("note_old", "note_old");
+        String title = arguments.get("title").toString();
+        String description = arguments.getString("description");
+        String timeNote = arguments.get("timeNote").toString();
+        String placeInWorld = arguments.get("placeInWorld").toString();
 
-
-
-       //}
+        titleInput.setText(title);
+        descriptionInput.setText(description);
+        timeInput.setText(timeNote);
+        placeInput.setText(placeInWorld);
 
 
         MaterialButton updateBtn = findViewById(R.id.savebtn);
