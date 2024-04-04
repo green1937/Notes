@@ -36,14 +36,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/titleSort"
-            android:text="по названию"
-            android:checked="true">
+            android:text="по названию">
         </RadioButton>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timeSort"
-            android:text="по дате создания">
+            android:text="по дате создания"
+            android:checked="true">
         </RadioButton>
     </RadioGroup>
     <Button
