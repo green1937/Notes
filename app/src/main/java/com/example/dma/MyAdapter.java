@@ -71,8 +71,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("title", note.title);
                 intent.putExtra("description", note.description);
                 intent.putExtra("timeNote", note.timeNote);
-                intent.putExtra("placeInWorld", note.placeInWorld);
+                //intent.putExtra("placeInWorld", note.placeInWorld);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+
 
             }
         });

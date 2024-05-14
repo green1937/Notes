@@ -5,7 +5,7 @@ import io.realm.RealmObject;
 public class Note extends RealmObject {
     String title;  // Название заметки
     String description;  // Описание заметки
-    String placeInWorld;  // Место на карте для заметки
+    //String placeInWorld;  // Место на карте для заметки
     String timeNote;  // Дата, к которой привязана заметка
 
 //    public Note(String title, String description, String placeInWorld, String timeNote) {
@@ -29,12 +29,12 @@ public class Note extends RealmObject {
         this.description = description;
     }
 
-    public String getPlaceInWorld() {
+    /*public String getPlaceInWorld() {
         return placeInWorld;
     }
     public void setPlaceInWorld(String placeInWorld) {
         this.placeInWorld = placeInWorld;
-    }
+    }*/
 
     public String getTimeNote() {
         return timeNote;

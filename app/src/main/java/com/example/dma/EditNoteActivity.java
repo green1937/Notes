@@ -40,7 +40,7 @@ public class EditNoteActivity extends AppCompatActivity {
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
 
-        EditText placeInput = findViewById(R.id.placeinworldinput);
+        //EditText placeInput = findViewById(R.id.placeinworldinput);
 
 
         Bundle arguments = getIntent().getExtras();
@@ -48,12 +48,12 @@ public class EditNoteActivity extends AppCompatActivity {
         String title = arguments.get("title").toString();
         String description = arguments.getString("description");
         String timeNote = arguments.get("timeNote").toString();
-        String placeInWorld = arguments.get("placeInWorld").toString();
+        //String placeInWorld = arguments.get("placeInWorld").toString();
 
         titleInput.setText(title);
         descriptionInput.setText(description);
         timeInput.setText(timeNote);
-        placeInput.setText(placeInWorld);
+        //placeInput.setText(placeInWorld);
 
 
         MaterialButton updateBtn = findViewById(R.id.savebtn);
@@ -61,44 +61,24 @@ public class EditNoteActivity extends AppCompatActivity {
 
         Realm.init(getApplicationContext());
 
-        //RealmResults<Note> notesList;
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Note note = notesList.get(position);
-                /*
-                realm.executeTransaction(r -> {
-                    // Get a turtle named "Tony".
-                    Note note_old = r.where(Note.class).equalTo("title", title).findFirst();
-                    note_old.deleteFromRealm();
-                    // discard the reference
-                    note_old = null;
-                });
-                */
                 Realm realm = Realm.getDefaultInstance();
-
-
-
 
                 String title_new = titleInput.getText().toString();
                 String description_new = descriptionInput.getText().toString();
                 String timeNote_new = timeInput.getText().toString();
-                String placeInWorld_new = placeInput.getText().toString();
+                //String placeInWorld_new = placeInput.getText().toString();
 
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
                 note.setTitle(title_new);
                 note.setDescription(description_new);
                 note.setTimeNote(timeNote_new);
-                note.setPlaceInWorld(placeInWorld_new);
+                //note.setPlaceInWorld(placeInWorld_new);
                 realm.commitTransaction();
                 Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
-
-                /*
-                Realm realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                note_old.deleteFromRealm();
-                realm.commitTransaction(); */
 
                 realm.beginTransaction();
                 Note note_old = realm.where(Note.class).equalTo("title", title).findFirst();
@@ -109,13 +89,6 @@ public class EditNoteActivity extends AppCompatActivity {
 
             }
         });
-
-        /*
-        Realm realm = Realm.getDefaultInstance();
-
-// Получение текущей заметки из Realm (если она уже существует)
-Note note = realm.where(Note.class).
-        */
 
     }
 

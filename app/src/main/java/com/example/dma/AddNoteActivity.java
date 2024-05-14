@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import io.realm.Realm;
 public class AddNoteActivity extends AppCompatActivity {
     CalendarView calender;
     EditText eTxt;
+    int flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +37,23 @@ public class AddNoteActivity extends AppCompatActivity {
 
         });
 
-        MaterialButton mapBtn = findViewById(R.id.mapbtn);
+        //MaterialButton mapBtn = findViewById(R.id.mapbtn);
+        //EditText placeInput = findViewById(R.id.placeinworldinput);
 
-        mapBtn.setOnClickListener(new View.OnClickListener() {
+        /*mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AddNoteActivity.this, MapActivity.class));
-
             }
-        });
+        });*/
+
 
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
         EditText timeInput = eTxt;
-        EditText placeInput = findViewById(R.id.placeinworldinput);
+
         MaterialButton saveBtn = findViewById(R.id.savebtn);
+
 
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
@@ -59,14 +63,14 @@ public class AddNoteActivity extends AppCompatActivity {
                 String title = titleInput.getText().toString();
                 String description = descriptionInput.getText().toString();
                 String timeNote = timeInput.getText().toString();
-                String placeInWorld = placeInput.getText().toString();
+                //String placeInWorld = placeInput.getText().toString();
 
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
                 note.setTitle(title);
                 note.setDescription(description);
                 note.setTimeNote(timeNote);
-                note.setPlaceInWorld(placeInWorld);
+                //note.setPlaceInWorld(placeInWorld);
                 realm.commitTransaction();
                 Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
                 finish();
