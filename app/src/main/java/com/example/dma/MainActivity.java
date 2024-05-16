@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
         ImageButton mapBtn = findViewById(R.id.iconMap);
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         MaterialButton addNoteBtn = findViewById(R.id.addnewnotebtn);
-
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Realm.init(getApplicationContext());
 
+        Realm.init(getApplicationContext());
 
         sortByTitle = (RadioButton) findViewById(R.id.titleSort);
         sortByTime = (RadioButton) findViewById(R.id.timeSort);
@@ -84,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 myAdapter.notifyDataSetChanged();
             }
         });
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,19 +112,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-       // notesList = realm.where(Note.class).findAll();
-
-
-
-
-
-
-
-
-
     }
+
+
     private RealmResults<Note> sortAndReturnNotes() {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();

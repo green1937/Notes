@@ -37,17 +37,6 @@ public class AddNoteActivity extends AppCompatActivity {
 
         });
 
-        //MaterialButton mapBtn = findViewById(R.id.mapbtn);
-        //EditText placeInput = findViewById(R.id.placeinworldinput);
-
-        /*mapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AddNoteActivity.this, MapActivity.class));
-            }
-        });*/
-
-
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
         EditText timeInput = eTxt;
@@ -63,7 +52,6 @@ public class AddNoteActivity extends AppCompatActivity {
                 String title = titleInput.getText().toString();
                 String description = descriptionInput.getText().toString();
                 String timeNote = timeInput.getText().toString();
-                //String placeInWorld = placeInput.getText().toString();
 
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
@@ -74,8 +62,6 @@ public class AddNoteActivity extends AppCompatActivity {
                 realm.commitTransaction();
                 Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
                 finish();
-
-
             }
         });
 

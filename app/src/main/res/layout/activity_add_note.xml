@@ -81,7 +81,7 @@
             android:background="@color/white"
             android:layout_marginTop="10dp"
             />
-        <EditText
+        <!--<EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/placeinworldinput"
@@ -100,7 +100,7 @@
             android:id="@+id/mapbtn"
             android:text="Указать место на карте"
             android:textSize="23dp"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"/> -->
 
     </LinearLayout>
 
