@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DMA</string>
+    <string name="license_text">
+       <a href="https://yandex.ru/legal/maps_termsofuse">Условия использования сервиса Яндекс.Карты</a>
+    </string>
+    <string name="Default_Options_Display">Current Activity : COMPLETELY RANDOM</string>
 </resources>
