@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, BoredActivity.class));
             }
         });
-
-
 
         MaterialButton addNoteBtn = findViewById(R.id.addnewnotebtn);
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                     notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
                         @Override
                         public void onChange(RealmResults<Note> notes) {
-
                             myAdapter.notifyDataSetChanged();
                         }
                     });
@@ -105,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
                         @Override
                         public void onChange(RealmResults<Note> notes) {
-
                             myAdapter.notifyDataSetChanged();
                         }
                     });

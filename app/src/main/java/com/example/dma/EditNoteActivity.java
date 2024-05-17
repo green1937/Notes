@@ -39,24 +39,17 @@ public class EditNoteActivity extends AppCompatActivity {
 
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
-
-        //EditText placeInput = findViewById(R.id.placeinworldinput);
-
+        MaterialButton updateBtn = findViewById(R.id.savebtn);
 
         Bundle arguments = getIntent().getExtras();
 
         String title = arguments.get("title").toString();
         String description = arguments.getString("description");
         String timeNote = arguments.get("timeNote").toString();
-        //String placeInWorld = arguments.get("placeInWorld").toString();
 
         titleInput.setText(title);
         descriptionInput.setText(description);
         timeInput.setText(timeNote);
-        //placeInput.setText(placeInWorld);
-
-
-        MaterialButton updateBtn = findViewById(R.id.savebtn);
 
 
         Realm.init(getApplicationContext());
@@ -69,16 +62,14 @@ public class EditNoteActivity extends AppCompatActivity {
                 String title_new = titleInput.getText().toString();
                 String description_new = descriptionInput.getText().toString();
                 String timeNote_new = timeInput.getText().toString();
-                //String placeInWorld_new = placeInput.getText().toString();
 
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
                 note.setTitle(title_new);
                 note.setDescription(description_new);
                 note.setTimeNote(timeNote_new);
-                //note.setPlaceInWorld(placeInWorld_new);
                 realm.commitTransaction();
-                Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Заметка сохранена", Toast.LENGTH_SHORT).show();
 
                 realm.beginTransaction();
                 Note note_old = realm.where(Note.class).equalTo("title", title).findFirst();
